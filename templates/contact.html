@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% block title %}
+  Contact
+{% endblock %}
+
+{% block body %}
+  {% if messages %}
+    {% for message in messages %}
+      <div class="alert alert-{{ message.tags }} alert-dismissible fade show my-0" role="alert">
+        <strong>{{ message }}</strong>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      </div>
+    {% endfor %}
+  {% endif %}
+
+  <div class="container">
+    <h1 class="text-center my-3" style="font-family: 'Baskervville';">Contact Us</h1>
+  </div>
+  <div style="margin-left: 80px; display: flex; margin-bottom: 20px;">
+    <form method="post" action="/contact/">
+      <h3 style="margin-left: 215px; margin-top: 15px; margin-bottom: 15px; font-family: 'Baskervville';">Franchies form</h3>
+      {% csrf_token %}
+      <div class="form-group">
+        <label for="name" style="font-family: 'Baskervville';"><h6>Full name</h6></label>
+        <input type="text" class="form-control" id="name" name="name" placeholder="eg.,Ram..." style="padding-right: 425px; font-family: 'Baskervville';" />
+      </div>
+      <div class="form-group">
+        <label for="email" style="font-family: 'Baskervville';"><h6>E-mail</h6></label>
+        <input type="email" class="form-control" id="email" name="email" placeholder="eg.,abc@example.com" style="font-family: 'Baskervville';"/>
+      </div>
+      <div class="form-group">
+        <label for="phone" style="font-family: 'Baskervville';"><h6>Contact no</h6></label>
+        <input type="phone" class="form-control" id="phone" name="phone" placeholder="eg.,9999988888" style="font-family: 'Baskervville';"/>
+      </div>
+      <div class="form-group">
+        <label for="desc" style="font-family: 'Baskervville';"><h6>Message</h6></label>
+        <textarea class="form-control" id="desc" name="desc" placeholder="Message..." style="font-family: 'Baskervville';"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary" style="font-family: 'Baskervville';">Submit</button>
+    </form>
+
+    <form method="post" action="/feedbackcontact">
+      <h3 style="margin-left: 270px; margin-top: 15px; margin-bottom: 15px; font-family: 'Baskervville';">Feedback form</h3>
+      {% csrf_token %}
+      <div class="form-group">
+        <label for="name"><h6 style="margin-left: 50px; font-family: 'Baskervville';">Name</h6></label>
+        <input type="text" class="form-control" id="name" name="name" placeholder="eg.,Shaam..." style="margin-left: 50px; padding-right: 425px; font-family: 'Baskervville';" />
+      </div>
+      <div class="form-group">
+        <label for="email"><h6 style="margin-left: 50px; font-family: 'Baskervville';">E-mail</h6></label>
+        <input type="email" class="form-control" id="email" name="email" placeholder="eg.,abc@example.com" style="margin-left: 50px; font-family: 'Baskervville';" />
+      </div>
+      <div class="form-group">
+        <label for="phone"><h6 style="margin-left: 50px; font-family: 'Baskervville';">Contact no</h6></label>
+        <input type="phone" class="form-control" id="phone" name="phone" placeholder="eg.,9999988888" style="margin-left: 50px; font-family: 'Baskervville';" />
+      </div>
+      <div class="form-group">
+        <label for="desc"><h6 style="margin-left: 50px; font-family: 'Baskervville';">Message</h6></label>
+        <textarea class="form-control" id="desc" name="desc" placeholder="Message..." style="margin-left: 50px; font-family: 'Baskervville';"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary" style="margin-left: 50px; font-family: 'Baskervville';">Submit</button>
+    </form>
+  </div>
+{% endblock %}
